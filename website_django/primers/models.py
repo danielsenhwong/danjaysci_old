@@ -43,6 +43,11 @@ class Primer(models.Model):
     help_text = "Date ordered. Format: YYYY-MM-DD. Leave blank if not yet ordered.",
   )
   user_id = models.PositiveIntegerField() # switch this to ForeignKey() later
+  datasheet_url = models.CharField(
+    max_length = 255,
+    blank = True,
+    null = True,
+  )
 
   def __unicode__(self): # Python 3: def __str__(self):
     return "%i - %s (%i nt)" % (
