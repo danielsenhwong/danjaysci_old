@@ -1,5 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render_to_response, RequestContext
 
 def home(request):
-  context = {}
-  return render(request, 'danjaysci/index.html', context)
+  return render_to_response('base.html', RequestContext(request, {}))
