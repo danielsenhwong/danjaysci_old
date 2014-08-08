@@ -1,7 +1,7 @@
 {% if latest_primer_list %}
     <ul>
     {% for primer in latest_primer_list %}
-        <li><a href="/primers/{{ primer.id }}/">{{ primer }}</a></li>
+        <li><a href="{% url 'primers:detail' primer.id %}/">{{ unicode(primer) }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

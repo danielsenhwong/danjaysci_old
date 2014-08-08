@@ -1,0 +1,9 @@
+<h1>{{ unicode(primer) }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'primers:edit' primer.id %}" method="post">
+{% csrf_token %}
+
+<input type="submit" value="Edit" />
+</form>
