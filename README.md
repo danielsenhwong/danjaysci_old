@@ -33,3 +33,10 @@ Priorities
 + Lab administration
   + Lab alumni
   + CALI papers
+  + Protocols
+
+*Updates*
+[20140808] Initiaited Django project for the website based off of Django 1.6
+and the associated tutorial. Registered danjaysci.com domain, and hosted on
+my account (Daniel Wong) with Apis Networks. Cloned github repo to ~/ 
+directory.
