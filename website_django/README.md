@@ -14,3 +14,7 @@ danjaysci
   from github, so these must be uploaded separately.
 * Additionally, remember to 'touch /var/www/danjaysci/index.fcgi' after
   updating.
+- Added STATIC_ROOT definition to settings.py, created 
+  /var/www/danjaysci/static and ran command 'python manage.py collectstatic'
+- The index.fcgi Python script can be tested by running 
+  'python /var/www/danjaysci/index.fcgi'
