@@ -57,3 +57,4 @@ target/
 # settings
 settings.py
 *.sqlite3
+fixtures/

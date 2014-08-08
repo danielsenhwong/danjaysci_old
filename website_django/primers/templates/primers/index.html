@@ -4,6 +4,8 @@
         <li><a href="{% url 'primers:detail' primer.id %}">{{ primer }}</a></li>
     {% endfor %}
     </ul>
+{% endif %}
+
 {% else %}
     <p>No primers are available.</p>
 {% endif %}
