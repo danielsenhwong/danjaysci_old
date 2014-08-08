@@ -58,3 +58,5 @@ target/
 settings.py
 *.sqlite3
 fixtures/
+*.psd
+*.ai
