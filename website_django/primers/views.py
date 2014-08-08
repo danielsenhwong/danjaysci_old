@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from primers.models import Primer
+
 # Create your views here.
 def index(request):
   latest_primer_list = Primer.objects.order_by('-id')[:5]
