@@ -7,6 +7,11 @@ class LabMember(models.Model):
   DAN_PHD_YEAR_LIST = [[]]
   for y in range(1985, date.today().year):
     DAN_PHD_YEAR_LIST.append([y,  y])
+  # convert the list to a tuple so that this will be valid for the form
+  DAN_PHD_YEAR_TUPLE = tuple(DAN_PHD_YEAR_LIST)
+
+  # make a list of trainee types. this may be better suited to be a separate
+  # model in the future so we might add new types of trainees.
   TRAINEE_TYPE = (
     ("", ""),
     ("Post-doctoral Fellow", "Post-doctoral Fellow"),
@@ -24,12 +29,12 @@ class LabMember(models.Model):
   first_name = models.CharField(max_length = 30)
   last_name = models.CharField(max_length = 30)
   start_year = models.PositiveIntegerField(
-    choices = DAN_PHD_YEAR_LIST,
+    choices = DAN_PHD_YEAR_TUPLE,
     blank = True,
     null = True,
   )
   end_year = models.PositiveIntegerField(
-    choices = DAN_PHD_YEAR_LIST,
+    choices = DAN_PHD_YEAR_TUPLE,
     blank = True,
     null = True,
   )
