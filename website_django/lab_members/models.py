@@ -47,11 +47,11 @@ class LabMember(models.Model):
     null = True,
   )
 
-def __unicode__(self):
-  return '%s %s (%i-%i), %s' % (
-    self.first_name, 
-    self.last_name,
-    self.start_year,
-    self.end_year,
-    self.trainee_type,
-  )
+  def __unicode__(self):
+    return '%s %s (%i-%i), %s' % (
+      self.first_name, 
+      self.last_name,
+      self.start_year,
+      self.end_year,
+      self.trainee_type,
+    )
