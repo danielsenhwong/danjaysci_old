@@ -13,7 +13,6 @@ class LabMember(models.Model):
   # make a list of trainee types. this may be better suited to be a separate
   # model in the future so we might add new types of trainees.
   TRAINEE_TYPE = (
-    ("", ""),
     ("Post-doctoral Fellow", "Post-doctoral Fellow"),
     ("Graduate Student, PhD", "Graduate Student, PhD"),
     ("Medical Student, MD", "Medical Student, MD"),
@@ -28,6 +27,11 @@ class LabMember(models.Model):
   
   first_name = models.CharField(max_length = 30)
   last_name = models.CharField(max_length = 30)
+  trainee_type = models.CharField(
+    max_length = 30,
+    choices = TRAINEE_TYPE,
+    blank = True,
+  )
   start_year = models.PositiveIntegerField(
     choices = DAN_PHD_YEAR_TUPLE,
     blank = True,

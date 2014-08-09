@@ -16,7 +16,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
-# Moved security key, debug, and __ to dev_settings
+# Moved security key, debug, and MySQL database settings to dev_settings
 try:
   from dev_settings import *
 except ImportError:
