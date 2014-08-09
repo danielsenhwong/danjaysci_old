@@ -54,9 +54,10 @@ docs/_build/
 target/
 
 ##### My modifications #####
-# settings
-settings.py
+# settings has been sanitized
+dev_settings.py
 *.sqlite3
 fixtures/
 *.psd
 *.ai
+
