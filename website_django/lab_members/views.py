@@ -18,3 +18,7 @@ class DetailView(generic.DetailView):
   model = LabMember
   tempalte_name = 'lab_member/detail.html'
 
+def edit(request, lab_member_id):
+  l = get_object_or_404(LabMember, pk=lab_member_id)
+
+  return HttpResponseDirect(reverse('lab_members:detail', args=(l.id,)))
