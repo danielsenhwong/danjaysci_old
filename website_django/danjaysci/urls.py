@@ -19,5 +19,6 @@ urlpatterns = patterns('',
     # my applications
     url(r'^$', 'danjaysci.views.home', name='home'), # home
     url(r'^primers/', include('primers.urls', namespace='primers')), # primers
+    url(r'^lab_members/', include('lab_members.urls', namespace='lab_members')), #lab_members
 
 )
