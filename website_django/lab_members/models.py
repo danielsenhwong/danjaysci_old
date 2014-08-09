@@ -4,9 +4,9 @@ from datetime import date
 # Create your models here.
 class LabMember(models.Model):
   # make a list of years since Dan received his PhD
-  DAN_PHD_YEAR_LIST = [[]]
+  DAN_PHD_YEAR_LIST = [()]
   for y in range(1985, date.today().year):
-    DAN_PHD_YEAR_LIST.append([y,  y])
+    DAN_PHD_YEAR_LIST.append( (y, y) )
   # convert the list to a tuple so that this will be valid for the form
   DAN_PHD_YEAR_TUPLE = tuple(DAN_PHD_YEAR_LIST)
 
