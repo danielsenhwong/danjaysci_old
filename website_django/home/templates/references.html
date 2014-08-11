@@ -3,6 +3,7 @@
     <td>#</td>
     <td>Title</td>
     <td>Author</td>
+    <td>Publication</td>
     <td>Year</td>
   </tr>
   {% for item in items %}
@@ -31,13 +32,20 @@
       {% endif %}
     {% endfor %}
     </td>
+    <td>
+    {% if item.journalAbbreviation %}
+      {{ item.journalAbbreviation }}
+    {% else %}
+      {{ item.publicationTitle }}
+    {% endif %}
+    </td>
     <td>{{ item.date }} </td>    
   </tr>
   {% endfor %}
 </table>
 
 {% for item in items %}
-  {{ item }}
-<br /><br />
-
+  {% for key,value in item.items %}
+    <b>{{ key }}:</b> {{ value }} <br />
+  {% endfor %}<br /><br />
 {% endfor %}
