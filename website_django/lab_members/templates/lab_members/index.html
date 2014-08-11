@@ -8,9 +8,7 @@
   </tr>
   {% for lm in lab_member_list %}
     <tr>
-      <td>
-        <a href="{% url 'lab_members:detail' lm.id %}">{{ lm.name_str }}</a>
-      </td>
+      <td>{{ lm.name_str }}</td>
       <td>{{ lm.trainee_type }}</td>
       <td>{{ lm.lab_years }}</td>
       <td>{{ lm.current_position }}</td>
