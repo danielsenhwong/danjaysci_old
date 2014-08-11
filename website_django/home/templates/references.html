@@ -1,3 +1,43 @@
+<table>
+  <tr>
+    <td>#</td>
+    <td>Title</td>
+    <td>Author</td>
+    <td>Year</td>
+  </tr>
+  {% for item in items %}
+  <tr>
+    <td>{{ forloop.revcounter }}</td>
+    <td>
+      {{ item.title }}<br />
+      [<a href="http://zotero.org/groups/jay_lab/items/itemKey/{{ item.key }}">Zotero</a>]
+      {% if item.DOI %}
+        [<a href="http://dx.doi.org/{{ item.DOI }}">DOI</a>]
+      {% endif %}
+      {% if item.url %}
+        [<a href="{{ item.url }}">Publisher</a>]
+      {% endif %}
+    </td>
+    <td>
+    {% for creator in item.creators %}
+      {% if forloop.revcounter0 == 0 %}
+        {% if forloop.first %}
+          {{ creator.lastName }}, {{ creator.firstName }}
+        {% else %}
+          and {{ creator.lastName }}, {{ creator.firstName }}
+        {% endif %}
+      {% else %}
+        {{ creator.lastName }}, {{ creator.firstName }};
+      {% endif %}
+    {% endfor %}
+    </td>
+    <td>{{ item.date }} </td>    
+  </tr>
+  {% endfor %}
+</table>
+
 {% for item in items %}
-  Item type: {{ item.itemType }} | Key: {{ item.key }}
+  {{ item }}
+<br /><br />
+
 {% endfor %}

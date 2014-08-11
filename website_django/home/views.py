@@ -11,8 +11,10 @@ def index(request):
 
 def references(request):
   # open a connection to the lab Zotero library
-  zot = zotero.Zotero(settings.ZOTERO_USER_ID, 'user', settings.ZOTERO_API_KEY)
+  zot = zotero.Zotero(settings.ZOTERO_LIBRARY_ID, settings.ZOTERO_LIBRARY_TYPE, settings.ZOTERO_API_KEY)
   # grab everything from the CALI library
-  items = zot.collection_items('67KMZ54K')
-
+  
+  items = zot.collection_items('DRGQSTRD', order='date')
+  
   return render(request, 'references.html', {'items': items})
+
