@@ -24,6 +24,11 @@
         <!-- Add your site or application content here -->
         <!-- <p>Hello world! This is HTML5 Boilerplate.</p> -->
 
+        <a href="/"><img src="{{ STATIC_URL }}img/danjaysci.png" alt="danjaysci"/></a>
+        <a href="/lab_members">current & past lab members</a>
+        <a href="/references/list">CALI references</a>
+        {% block navigation %}{% endblock %}
+        
         {% block content %}{% endblock %}
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

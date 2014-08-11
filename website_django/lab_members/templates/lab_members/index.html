@@ -1,5 +1,8 @@
+{% extends 'base.html' %}
 
+{% block title %}{% endblock %}
 
+{% block content %}
 {% if lab_member_list %}
 <table>
   <tr>
@@ -20,3 +23,4 @@
 {% else %}
   No lab members found!
 {% endif %}
+{% endblock %}
