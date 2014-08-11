@@ -88,6 +88,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = '/var/www/danjaysci/static/'
 
 PROJECT_DIR = os.path.dirname(__file__)
-STATICFILES_DIRS = (os.path.join(PROJECT_DIR, 'static'),)
+STATICFILES_DIRS = os.path.join(PROJECT_DIR, 'static')
 
-TEMPLATE_DIRS = ('/home/danielsenhwong/danjaysci/website_django/danjaysci/templates')
+TEMPLATE_DIRS = ('/home/danielsenhwong/danjaysci/website_django/danjaysci/templates', STATICFILES_DIRS)
