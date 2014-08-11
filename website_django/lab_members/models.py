@@ -19,8 +19,8 @@ class LabMember(models.Model):
     ("Graduate Student, MS", "Graduate Student, MS"),
     ("Technician", "Technician"),
     ("Undergraduate Student (PREP)", "Undergradaute Student (PREP)"),
-    ("Undergraduate Student", "Undergraduate Student"),
-    ("Summer Undergraduate Student", "Summer Undergraduate Student"),
+    ("Undergraduate Student (Full year / Thesis)", "Undergraduate Student (Full year / Thesis)"),
+    ("Undergraduate Student (Summer)", "Undergraduate Student (Summer)"),
     ("High School Student", "High School Student"),
     ("Visiting Scientist", "Visiting Scientist"),
   )
@@ -28,7 +28,7 @@ class LabMember(models.Model):
   first_name = models.CharField(max_length = 30)
   last_name = models.CharField(max_length = 30)
   trainee_type = models.CharField(
-    max_length = 30,
+    max_length = 128,
     choices = TRAINEE_TYPE,
     blank = True,
   )
@@ -46,12 +46,27 @@ class LabMember(models.Model):
     blank = True,
     null = True,
   )
+  date_added = models.DateField(
+    auto_now_add = True,
+  )
+  last_updated = models.DateField(
+    help_text = 'The date this person\'s "Current Position" information was last updated.',
+    blank = True,
+    null = True,
+  )
 
   def __unicode__(self):
-    return '%s %s (%i-%i), %s' % (
+    return '%s %s, %s (%i-%i)' % (
       self.first_name, 
       self.last_name,
+      self.trainee_type,
       self.start_year,
       self.end_year,
-      self.trainee_type,
     )
+
+  def name_str(self):
+    return '%s %s' % (self.first_name, self.last_name)
+  name_str.short_description = 'Name'
+
+  def lab_years(self):
+    return '%i - %i' % (self.start_year, self.end_year)

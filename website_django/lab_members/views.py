@@ -8,11 +8,11 @@ from lab_members.models import LabMember
 # Create your views here.
 class IndexView(generic.ListView):
   template_name = 'lab_members/index.html'
-  context_object_name = 'latest_lab_member_list'
+  context_object_name = 'lab_member_list'
 
   def get_queryset(self):
-    """Return the last 50 lab members."""
-    return LabMember.object.order_by('-start_year')[:50]
+    """Return a list of lab members, most recent first."""
+    return LabMember.objects.order_by('-start_year')
 
 class DetailView(generic.DetailView):
   model = LabMember

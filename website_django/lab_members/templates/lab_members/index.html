@@ -1,0 +1,7 @@
+{% if lab_member_list %}
+  {% for lm in lab_member_list %}
+    <a href="{% url 'lab_members:detail' lm.id %}">{{ lm }}</a>
+  {% endfor %}
+{% else %}
+  No lab members found!
+{% endif %}
