@@ -16,6 +16,7 @@ urlpatterns = patterns('',
 
     # my applications
     url(r'^$', include('home.urls')), # home
+    url(r'^references', include('home.urls')), # references
     url(r'^primers/', include('primers.urls', namespace='primers')), # primers
     url(r'^lab_members/', include('lab_members.urls', namespace='lab_members')), #lab_members
 
