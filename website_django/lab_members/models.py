@@ -63,10 +63,10 @@ class LabMember(models.Model):
       self.trainee_type,
       self.start_year)
     
-    if self.end_year == self.start_year
-      output += ')'
-    elif not self.end_year
+    if not self.end_year
       output += '-present)'
+    elif self.end_year == self.start_year
+      output += ')'
     else
       output += '-%d' % (self.end_year)
     
