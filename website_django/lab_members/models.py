@@ -5,7 +5,7 @@ from datetime import date
 class LabMember(models.Model):
   # make a list of years since Dan received his PhD
   DAN_PHD_YEAR_LIST = list()
-  for y in range(1985, date.today().year):
+  for y in range(1985, date.today().year + 1):
     DAN_PHD_YEAR_LIST.append( (y, y) )
   # convert the list to a tuple so that this will be valid for the form
   DAN_PHD_YEAR_TUPLE = tuple(DAN_PHD_YEAR_LIST)
@@ -63,10 +63,10 @@ class LabMember(models.Model):
       self.trainee_type,
       self.start_year)
     
-    if self.end_year == self.start_year
-      output += ')'
-    elif not self.end_year
+    if not self.end_year
       output += '-present)'
+    elif self.end_year == self.start_year
+      output += ')'
     else
       output += '-%d' % (self.end_year)
     
