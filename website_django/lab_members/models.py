@@ -61,7 +61,8 @@ class LabMember(models.Model):
       self.first_name,
       self.last_name,
       self.trainee_type,
-      self.start_year)
+      self.start_year
+    )
     
     if not self.end_year
       output += '-present)'
@@ -71,7 +72,6 @@ class LabMember(models.Model):
       output += '-%d' % (self.end_year)
     
     return output
-    )
 
   def name_str(self):
     return '%s %s' % (self.first_name, self.last_name)
