@@ -57,13 +57,19 @@ class LabMember(models.Model):
   )
 
   def __unicode__(self):
-    output = '%s %s, %s (%s)' % (
+    output = '%s %s, %s (%d' % (
       self.first_name,
       self.last_name,
       self.trainee_type,
-      self.lab_years
+      self.start_year
     )
     
+    if not self.end_year:
+      output += '-present)'
+    elif self.end_year == self.start_year:
+      output += ')'
+    else:
+      output += '-%d)' % (self.end_year)
     return output
 
   def name_str(self):
