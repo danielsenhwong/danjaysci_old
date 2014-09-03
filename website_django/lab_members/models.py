@@ -16,9 +16,10 @@ class LabMember(models.Model):
     ("Post-doctoral Fellow", "Post-doctoral Fellow"),
     ("Graduate Student, PhD", "Graduate Student, PhD"),
     ("Medical Student, MD", "Medical Student, MD"),
-    ("Graduate Student, MS", "Graduate Student, MS"),
+    ("Graduate Student, MBS (Literature Thesis)", "Graduate Student, MBS (Literature Thesis)"),
+    ("Graduate Student, MBS (Research Thesis)", "Graduate Student, MBS (Research Thesis)"),
     ("Technician", "Technician"),
-    ("Undergraduate Student (PREP)", "Undergradaute Student (PREP)"),
+    ("PREP Scholar", "PREP Scholar"),
     ("Undergraduate Student (Full year / Thesis)", "Undergraduate Student (Full year / Thesis)"),
     ("Undergraduate Student (Summer)", "Undergraduate Student (Summer)"),
     ("High School Student", "High School Student"),
@@ -56,12 +57,20 @@ class LabMember(models.Model):
   )
 
   def __unicode__(self):
-    return '%s %s, %s (%i-%i)' % (
-      self.first_name, 
+    output = '%s %s, %s (%d' % (
+      self.first_name,
       self.last_name,
       self.trainee_type,
-      self.start_year,
-      self.end_year,
+      self.start_year)
+    
+    if self.end_year == self.start_year
+      output += ')'
+    elif not self.end_year
+      output += '-present)'
+    else
+      output += '-%d' % (self.end_year)
+    
+    return output
     )
 
   def name_str(self):
@@ -69,4 +78,4 @@ class LabMember(models.Model):
   name_str.short_description = 'Name'
 
   def lab_years(self):
-    return '%i - %i' % (self.start_year, self.end_year)
+    return '%d - %d' % (self.start_year, self.end_year)
