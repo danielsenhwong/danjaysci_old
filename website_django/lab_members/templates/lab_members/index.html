@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}{% endblock %}
+{% block title %}Lab Members{% endblock %}
 
 {% block content %}
 {% if lab_member_list %}
 <table>
-  <tr>
+  <tr class="header">
     <td>Name</td>
-    <td></td>
-    <td>Years in lab</td>
+    <td>Lab role</td>
+    <td class="nowrap">Years in lab</td>
     <td>Current position</td>
   </tr>
   {% for lm in lab_member_list %}
-    <tr>
-      <td>{{ lm.name_str }}</td>
-      <td>{{ lm.trainee_type }}</td>
-      <td>{{ lm.lab_years }}</td>
-      <td>{{ lm.current_position }}</td>
+    <tr class="{{ forloop.counter|divisibleby:2|yesno:'even,odd' }}">
+      <td class="nowrap">{{ lm.name_str }}</td>
+      <td class="nowrap">{{ lm.trainee_type }}</td>
+      <td class="nowrap">{{ lm.lab_years }}</td>
+      <td class="">{{ lm.current_position }}</td>
     </tr>
   {% endfor %}
 </table>

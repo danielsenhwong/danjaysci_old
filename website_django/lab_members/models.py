@@ -71,7 +71,8 @@ class LabMember(models.Model):
     return output
 
   def name_str(self):
-    return '%s %s' % (self.first_name, self.last_name)
+    output = '%s%s%s' % (self.first_name, unichr(160), self.last_name)
+    return output
   name_str.short_description = 'Name'
 
   def lab_years(self):

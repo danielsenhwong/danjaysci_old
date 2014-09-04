@@ -1,0 +1,49 @@
+#container {
+  width: 95%;
+  margin: 10px auto;
+  border: 1px solid gray;
+  overflow: auto;
+  min-width: 800px
+}
+
+#navigation {
+  float: right;
+  width: 200px;
+  margin: 0;
+  border-left: 1px solid gray;
+  padding: 0px 10px;
+}
+
+#navlogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#content {
+  margin-right: 220px;
+  border-right: 1px solid gray;
+  padding: 1em;
+  min-width: 600px;
+}
+
+td {
+  padding: 0.25em 1em;
+  vertical-align: top;
+}
+
+td.nowrap {
+  white-space: nowrap;
+}
+
+.header {
+  font-weight: bold;
+}
+
+.even {
+  
+}
+
+.odd {
+  background-color: aliceblue;
+}

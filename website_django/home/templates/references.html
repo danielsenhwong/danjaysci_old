@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}{% endblock %}
+{% block title %}CALI References{% endblock %}
 
 {% block content %}
 <table>
-  <tr>
+  <tr class="header">
     <td>#</td>
     <td>Title</td>
-    <td>Author</td>
+    <td>Author(s)</td>
     <td>Publication</td>
     <td>Year</td>
   </tr>
   {% for item in items %}
-  <tr>
+  <tr class="{{ forloop.counter|divisibleby:2|yesno:'even,odd' }}">
     <td>{{ forloop.revcounter }}</td>
     <td>
       {{ item.title }}<br />
