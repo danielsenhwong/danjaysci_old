@@ -11,7 +11,10 @@ def index(request):
 
 def references(request, starting_item='0'):
   # open a connection to the lab Zotero library
-  zot = zotero.Zotero(settings.ZOTERO_LIBRARY_ID, settings.ZOTERO_LIBRARY_TYPE, settings.ZOTERO_API_KEY)
+  zot = zotero.Zotero(settings.ZOTERO_LIBRARY_ID,
+                      settings.ZOTERO_LIBRARY_TYPE,
+                      settings.ZOTERO_API_KEY,
+                      )
   
   # make a list of the collections belonging to the lab and their keys
   collections = {'CALI': 'DRGQSTRD',
@@ -22,12 +25,13 @@ def references(request, starting_item='0'):
   # also make a list of offset values
   collection_size = zot.num_collectionitems(collections['CALI'])
   reference_index = collection_size - int(starting_item)
-  offset_list = range(0, collection_size, 50)
+  offset_list = range(0, collection_size, 25)
   
   # read references from the CALI collection, 50 items at a time, starting from the most 
   # recent, or some arbitrary offset
   items = zot.collection_items(collections['CALI'],
                                start=starting_item, 
+                               limit=25,
                               )
   
   # render HTML output using the references template, and also make some variables 
