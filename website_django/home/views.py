@@ -42,3 +42,5 @@ def references(request, starting_item='0'):
                                              'offset_list': offset_list,
                                             })
 
+def contact(request):
+  return render_to_response('contact.html', context_instance=RequestContext(request))

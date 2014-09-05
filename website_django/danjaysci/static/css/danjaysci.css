@@ -1,34 +1,76 @@
+@media only screen and (min-device-width: 640px) {
+
+  #container {
+    width: 95%;
+    margin: 10px auto;
+    min-width: 600px
+  }
+
+  #navigation {
+    float: right;
+    width: 200px;
+    border-left: 1px solid gray;
+    padding: 0px 10px;
+  }
+
+  #content {
+    margin-right: 220px;
+    border-right: 1px solid gray;
+    padding: 1em;
+    min-width: 600px;
+  }
+
+  td {
+    padding: 0.25em 1em;
+	vertical-align: top;
+  }
+
+  #navlogo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+  #container {
+    margin: 3px;
+  } 
+  
+  #navigation {
+
+  }
+
+  #content {
+    
+  }
+
+  td {
+	
+  }
+  
+  #navlogo {
+  
+  }
+}
+
 #container {
-  width: 95%;
-  margin: 10px auto;
   border: 1px solid gray;
   overflow: auto;
-  min-width: 800px
 }
 
 #navigation {
-  float: right;
-  width: 200px;
   margin: 0;
-  border-left: 1px solid gray;
-  padding: 0px 10px;
+}
+
+#content {
+  
 }
 
 #navlogo {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#content {
-  margin-right: 220px;
-  border-right: 1px solid gray;
-  padding: 1em;
-  min-width: 600px;
 }
 
 td {
-  padding: 0.25em 1em;
   vertical-align: top;
 }
 
@@ -46,4 +88,12 @@ td.nowrap {
 
 .odd {
   background-color: aliceblue;
+}
+
+.noMarginTop {
+  margin-top: 0;
+}
+
+.noMarginBottom {
+  margin-bottom: 0;
 }

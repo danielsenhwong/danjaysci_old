@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Information{% endblock %}
+{% block content_title %}Contact Information{% endblock %}
+{% block content %}
+<h3 class="noMarginTop noMarginBottom">E-mail:</h3>
+<script language="JavaScript">
+  var username = "daniel.jay";
+  var hostname = "tufts.edu";
+  var linktext = username + "@" + hostname;
+  document.write("<a href=\"" + "mail" + "to:" + username + "@" + hostname + "\">" + linktext + "</a>");
+</script>
+<h3 class="noMarginBottom">Mailing Address</h3>
+<p class="noMarginTop">Dan Jay<br />
+Tufts University, DMCB<br />
+136 Harrison Ave, M&V 709<br />
+Boston, MA 02111</p>
+
+{% endblock %}
