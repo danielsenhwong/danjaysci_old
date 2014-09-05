@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'south',
     'lab_members',
     'home',
+    'mathfilters',
 )
 
 MIDDLEWARE_CLASSES = (

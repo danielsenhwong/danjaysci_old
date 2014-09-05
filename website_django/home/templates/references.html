@@ -1,30 +1,30 @@
 {% extends 'base.html' %}
+{% load mathfilters %}
 
 {% block title %}CALI References{% endblock %}
 
 {% block content %}
+<h1>CALI References</h1>
+<p>Published studies that employ the use of or otherwise investigate chromophore-assisted 
+light inactivation (CALI) are listed below. Where available, a link resolving the digital 
+object identifier (DOI) for a publication, or a direct link to the paper on the 
+publisher's website is provided.</p>
+<p>Currently, the total number of CALI references is {{ collection_size }}, and are 
+retrieved 50 at a time to be displayed here. </p>
+
 <table>
   <tr class="header">
     <td>#</td>
-    <td>Title</td>
-    <td>Author(s)</td>
+    <td>Title & Authors</td>
     <td>Publication</td>
     <td>Year</td>
   </tr>
   {% for item in items %}
   <tr class="{{ forloop.counter|divisibleby:2|yesno:'even,odd' }}">
-    <td>{{ forloop.revcounter }}</td>
+    <td>{{ collection_size|sub:forloop.counter0 }}</td>
     <td>
-      {{ item.title }}<br />
-      [<a href="http://zotero.org/groups/jay_lab/items/itemKey/{{ item.key }}">Zotero</a>]
-      {% if item.DOI %}
-        [<a href="http://dx.doi.org/{{ item.DOI }}">DOI</a>]
-      {% endif %}
-      {% if item.url %}
-        [<a href="{{ item.url }}">Publisher</a>]
-      {% endif %}
-    </td>
-    <td>
+      <b>{{ item.title }}</b><br />
+
     {% for creator in item.creators %}
       {% if forloop.revcounter0 == 0 %}
         {% if forloop.first %}
@@ -35,7 +35,15 @@
       {% else %}
         {{ creator.lastName }}, {{ creator.firstName }};
       {% endif %}
-    {% endfor %}
+    {% endfor %}<br />
+
+      {% if item.DOI %}
+        [<a href="http://dx.doi.org/{{ item.DOI }}">DOI</a>]
+      {% endif %}
+      {% if item.url %}
+        [<a href="{{ item.url }}">Publisher</a>]
+      {% endif %}
+
     </td>
     <td>
     {% if item.journalAbbreviation %}
@@ -44,7 +52,7 @@
       {{ item.publicationTitle }}
     {% endif %}
     </td>
-    <td>{{ item.date }} </td>    
+    <td class="nowrap">{{ item.date }} </td>    
   </tr>
   {% endfor %}
 </table>
