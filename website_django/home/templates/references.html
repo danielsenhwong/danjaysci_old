@@ -1,17 +1,33 @@
 {% extends 'base.html' %}
 {% load mathfilters %}
 
+
+
 {% block title %}CALI References{% endblock %}
 
 {% block content %}
 <h1>CALI References</h1>
 <p>Published studies that employ the use of or otherwise investigate chromophore-assisted 
-light inactivation (CALI) are listed below. Where available, a link resolving the digital 
+light inactivation (CALI) are listed on this page. Where available, a link resolving the digital 
 object identifier (DOI) for a publication, or a direct link to the paper on the 
 publisher's website is provided.</p>
-<p>Currently, the total number of CALI references is {{ collection_size }}, and are 
-retrieved 50 at a time to be displayed here. </p>
+<p>Currently, there are a total number of <u>{{ collection_size }} CALI references</u>. 
+Sorted by publication date, most recent first, references <u>{{ reference_index }} 
+to {{ reference_index|sub:'50' }}</u> are listed below.</p>
+<p> List references 
+{% for offset in offset_list %}
+  <a href="{% url 'offset' offset %}">
+    {{ collection_size|sub:offset }} - 
+    {% if collection_size|sub:offset <= 50 %}
+      1</a>
+    {% else %}
+      {{ collection_size|sub:offset|sub:'49' }}</a>, 
+    {% endif %}
+  
+{% endfor %}
+</p>
 
+{# make a table of references #}
 <table>
   <tr class="header">
     <td>#</td>
@@ -19,9 +35,11 @@ retrieved 50 at a time to be displayed here. </p>
     <td>Publication</td>
     <td>Year</td>
   </tr>
+  {# for each individual reference, make a row, then print the title, make an author #}
+  {# list, and article links, followed by information ont he journal and publication date #}
   {% for item in items %}
   <tr class="{{ forloop.counter|divisibleby:2|yesno:'even,odd' }}">
-    <td>{{ collection_size|sub:forloop.counter0 }}</td>
+    <td>{{ reference_index|sub:forloop.counter0 }}</td>
     <td>
       <b>{{ item.title }}</b><br />
 

@@ -18,8 +18,8 @@ urlpatterns = patterns('',
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
 
     # my applications
-    url(r'^$', include('home.urls')), # home
-    url(r'^references/', include('home.urls')), # references
+    url(r'^$', include('home.urls'), name='home'), # home
+    url(r'^references/', include('home.urls'), name='references'), # references
     url(r'^primers/', include('primers.urls', namespace='primers')), # primers
     url(r'^lab_members/', include('lab_members.urls', namespace='lab_members')), #lab_members
 

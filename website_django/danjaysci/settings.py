@@ -93,5 +93,6 @@ STATICFILES_DIRS = (os.path.join(PROJECT_DIR, 'static'),)
 
 TEMPLATE_DIRS = ('/home/danielsenhwong/danjaysci/website_django/danjaysci/templates',
                  '/Users/danielwong/github/local/danjaysci/website_django/danjaysci/templates',
+                 '/Users/danielwong/github/danjaysci/website_django/danjaysci/templates',
                 )
 TEMPLATE_DIRS += STATICFILES_DIRS
