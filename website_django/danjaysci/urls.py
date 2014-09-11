@@ -3,6 +3,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from django.contrib.auth import views as auth_views
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'danjaysci.views.home', name='home'),
@@ -15,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # user authentication
-    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'registration/login.html'}),
 
     # my applications
     url(r'^$', include('home.urls'), name='home'), # home

@@ -44,3 +44,16 @@ def references(request, starting_item='0'):
 
 def contact(request):
   return render_to_response('contact.html', context_instance=RequestContext(request))
+  
+#def login(request):
+#  username = request.POST['username']
+#  password = request.POST['password']
+#  user = authenticate(username=username, password=password)
+#  if user is not None:
+#    if user.is_active:
+#      login(request, user)
+#      #redirect
+#    else:
+#      #return user disabled
+#  else:
+#    #return invalid

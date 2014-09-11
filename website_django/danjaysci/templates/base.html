@@ -29,15 +29,7 @@
 
 		<div id="container">
 	        <div id="navigation">
-		        <a href="/"><img src="{{ STATIC_URL }}img/danjaysci.png" alt="danjaysci" id="navlogo"/></a>
-    		    <b>general information</b><br />
-    		    <a href="/lab_members">lab members</a><br />
-        		<a href="/references/list">CALI references</a><br />
-        		<a href="/contact">contact info</a><br />
-        		<br />
-        		<b>related sites</b><br />
-        		<a href="http://www.danjayart.com" target="_blank">danjayart.com</a>
-	        	{% block navigation %}{% endblock %}
+	            {% include "navigation.html" %}
 	        </div>
         
     	    <div id="content">
@@ -58,7 +50,7 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            ga('create','{{ GOOGLE_ANALYTICS_ID }}');ga('send','pageview');
         </script>
     </body>
 </html>
