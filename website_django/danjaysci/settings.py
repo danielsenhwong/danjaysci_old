@@ -96,3 +96,7 @@ TEMPLATE_DIRS = ('/home/danielsenhwong/danjaysci/website_django/danjaysci/templa
                  '/Users/danielwong/github/danjaysci/website_django/danjaysci/templates',
                 )
 TEMPLATE_DIRS += STATICFILES_DIRS
+
+MEDIA_ROOT = '/var/www/danjaysci/media/'
+
+MEDIA_URL = '/media/'
