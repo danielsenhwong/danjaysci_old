@@ -26,10 +26,8 @@ class LabMember(models.Model):
   
   first_name = models.CharField(max_length = 30)
   last_name = models.CharField(max_length = 30)
-  trainee_type = models.CharField(
-    max_length = 128,
-    choices = TRAINEE_TYPE,
-    blank = True,
+  trainee_type = models.ForeignKey(
+    'TraineeType'
   )
   start_year = models.PositiveIntegerField(
     choices = DAN_PHD_YEAR_TUPLE,
