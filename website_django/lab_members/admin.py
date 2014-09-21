@@ -1,5 +1,5 @@
 from django.contrib import admin
-from lab_members.models import LabMember
+from lab_members.models import LabMember, TraineeType
 
 class LabMemberAdmin(admin.ModelAdmin):
   exclude = ('date_added',)
@@ -35,3 +35,4 @@ class LabMemberAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(LabMember, LabMemberAdmin)
+admin.site.register(TraineeType)

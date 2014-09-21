@@ -13,15 +13,15 @@ class LabMember(models.Model):
   # make a list of trainee types. this may be better suited to be a separate
   # model in the future so we might add new types of trainees.
   TRAINEE_TYPE = (
-    ("Post-doctoral Fellow", "Post-doctoral Fellow"),
-    ("Graduate Student, PhD", "Graduate Student, PhD"),
-    ("Medical Student, MD", "Medical Student, MD"),
+    ("Post-doctoral Fellow",     "Post-doctoral Fellow"),
+    ("Graduate Student, PhD",    "Graduate Student, PhD"),
+    ("Medical Student, MD",      "Medical Student, MD"),
     ("Graduate Student, MS/MBS", "Graduate Student, MS/MBS"),
-    ("Technician", "Technician"),
-    ("PREP Scholar", "PREP Scholar"),
-    ("Undergraduate Student", "Undergraduate Student"),
-    ("High School Student", "High School Student"),
-    ("Visiting Scientist", "Visiting Scientist"),
+    ("Technician",               "Technician"),
+    ("PREP Scholar",             "PREP Scholar"),
+    ("Undergraduate Student",    "Undergraduate Student"),
+    ("High School Student",      "High School Student"),
+    ("Visiting Scientist",       "Visiting Scientist"),
   )
   
   first_name = models.CharField(max_length = 30)
@@ -85,3 +85,16 @@ class LabMember(models.Model):
     else:
       output += '-%d' % (self.end_year)
     return output
+
+class TraineeType(models.Model):
+  name = models.CharField(
+    max_length = 64,
+  )
+  abbreviation  = models.CharField(
+    max_length = 24,
+  )
+  description = models.TextField(
+    blank = True,
+    null = True,
+  )
+  

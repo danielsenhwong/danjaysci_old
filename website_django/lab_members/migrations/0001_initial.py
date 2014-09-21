@@ -1,40 +1,30 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'LabMember'
-        db.create_table(u'lab_members_labmember', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('first_name', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('last_name', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('start_year', self.gf('django.db.models.fields.PositiveIntegerField')(null=True, blank=True)),
-            ('end_year', self.gf('django.db.models.fields.PositiveIntegerField')(null=True, blank=True)),
-            ('current_position', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-        ))
-        db.send_create_signal(u'lab_members', ['LabMember'])
+    dependencies = [
+    ]
 
-
-    def backwards(self, orm):
-        # Deleting model 'LabMember'
-        db.delete_table(u'lab_members_labmember')
-
-
-    models = {
-        u'lab_members.labmember': {
-            'Meta': {'object_name': 'LabMember'},
-            'current_position': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
-            'end_year': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'}),
-            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'start_year': ('django.db.models.fields.PositiveIntegerField', [], {'null': 'True', 'blank': 'True'})
-        }
-    }
-
-    complete_apps = ['lab_members']
+    operations = [
+        migrations.CreateModel(
+            name='LabMember',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('first_name', models.CharField(max_length=30)),
+                ('last_name', models.CharField(max_length=30)),
+                ('trainee_type', models.CharField(blank=True, max_length=128, choices=[(b'Post-doctoral Fellow', b'Post-doctoral Fellow'), (b'Graduate Student, PhD', b'Graduate Student, PhD'), (b'Medical Student, MD', b'Medical Student, MD'), (b'Graduate Student, MS/MBS', b'Graduate Student, MS/MBS'), (b'Technician', b'Technician'), (b'PREP Scholar', b'PREP Scholar'), (b'Undergraduate Student', b'Undergraduate Student'), (b'High School Student', b'High School Student'), (b'Visiting Scientist', b'Visiting Scientist')])),
+                ('start_year', models.PositiveIntegerField(blank=True, null=True, choices=[(1985, 1985), (1986, 1986), (1987, 1987), (1988, 1988), (1989, 1989), (1990, 1990), (1991, 1991), (1992, 1992), (1993, 1993), (1994, 1994), (1995, 1995), (1996, 1996), (1997, 1997), (1998, 1998), (1999, 1999), (2000, 2000), (2001, 2001), (2002, 2002), (2003, 2003), (2004, 2004), (2005, 2005), (2006, 2006), (2007, 2007), (2008, 2008), (2009, 2009), (2010, 2010), (2011, 2011), (2012, 2012), (2013, 2013), (2014, 2014)])),
+                ('end_year', models.PositiveIntegerField(blank=True, null=True, choices=[(1985, 1985), (1986, 1986), (1987, 1987), (1988, 1988), (1989, 1989), (1990, 1990), (1991, 1991), (1992, 1992), (1993, 1993), (1994, 1994), (1995, 1995), (1996, 1996), (1997, 1997), (1998, 1998), (1999, 1999), (2000, 2000), (2001, 2001), (2002, 2002), (2003, 2003), (2004, 2004), (2005, 2005), (2006, 2006), (2007, 2007), (2008, 2008), (2009, 2009), (2010, 2010), (2011, 2011), (2012, 2012), (2013, 2013), (2014, 2014)])),
+                ('current_position', models.TextField(null=True, blank=True)),
+                ('date_added', models.DateField(auto_now_add=True)),
+                ('last_updated', models.DateField(help_text=b'The date this person\'s "Current Position" information was last updated.', null=True, blank=True)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+    ]

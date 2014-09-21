@@ -37,10 +37,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'primers',
-    'south',
     'lab_members',
     'home',
     'mathfilters',
+    'plasmids',
 )
 
 MIDDLEWARE_CLASSES = (
