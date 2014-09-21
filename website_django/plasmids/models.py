@@ -29,6 +29,7 @@ class Plasmid(models.Model):
     limit_choices_to = {
       'prokaryotic_use': True,
     },
+    related_name = 'prokaryotic_antibiotic',
     on_delete = models.PROTECT, # do not allow antibiotic to be deleted from database if a dependent plasmid is also in the database
     blank = True,
   )
@@ -37,6 +38,7 @@ class Plasmid(models.Model):
     limit_choices_to = {
       'eukaryotic_use': True,
     },
+    related_name = 'eukaryotic_antibiotic',
     on_delete = models.PROTECT, # do not allow antibiotic to be deleted from database if a dependent plasmid is also in the database
     blank = True,
     null = True,
