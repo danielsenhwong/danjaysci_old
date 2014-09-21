@@ -98,3 +98,8 @@ class TraineeType(models.Model):
     null = True,
   )
   
+  def __unicode__(self):
+    output = "%s" % (self.name)
+    
+    return output
+  
