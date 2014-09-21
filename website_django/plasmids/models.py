@@ -104,7 +104,8 @@ class dnaPrep(models.Model):
     null = True,
   )
   datasheet = models.FileField(
-    
+    blank = True,
+    null = True,
   )
   depleted = models.BooleanField(
     default = None,
