@@ -16,11 +16,13 @@ class Plasmid(models.Model):
 
   number = models.CharField(
     max_length = 9,
+    help_text = "All plasmids are numbered, and given a 'p' prefix, e.g. p1, p2, p3, etc.",
   )
   name = models.CharField(
-    max_length = 64
+    max_length = 64,
   )
-  alternate_names = models.TextField(
+  alternate_names = models.CharField(
+    max_length = 64,
     blank = True,
     null = True,
   )
@@ -31,7 +33,6 @@ class Plasmid(models.Model):
     },
     related_name = 'prokaryotic_antibiotic',
     on_delete = models.PROTECT, # do not allow antibiotic to be deleted from database if a dependent plasmid is also in the database
-    blank = True,
   )
   eukaryotic_selection = models.ForeignKey(
     'SelectionAntibiotic',
@@ -55,7 +56,7 @@ class Plasmid(models.Model):
   )
   plasmid_source = models.CharField(
     max_length = 128,
-    verbose_name = "Plasmid source / received from",
+    verbose_name = "Plasmid source (received from)",
   )
   parent_plasmid = models.ForeignKey(
     'Plasmid',
@@ -168,6 +169,7 @@ class SelectionAntibiotic(models.Model):
   notes = models.TextField(
     blank = True,
     null = True,
+    help_text = "Put recommended working concentration values here."
   )
   
   def __unicode__(self):
