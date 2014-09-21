@@ -15,7 +15,7 @@
   {% for lm in lab_member_list %}
     <tr class="{{ forloop.counter|divisibleby:2|yesno:'even,odd' }}">
       <td class="nowrap">{{ lm.name_str }}</td>
-      <td class="nowrap">{{ lm.trainee_type }}</td>
+      <td class="nowrap">{{ lm.trainee_type.name }}</td>
       <td class="nowrap">{{ lm.lab_years }}</td>
       <td class="">{{ lm.current_position }}</td>
     </tr>

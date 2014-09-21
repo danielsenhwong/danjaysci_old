@@ -140,3 +140,8 @@ class SelectionAntibiotic(models.Model):
     blank = True,
     null = True,
   )
+  
+  def __unicode__(self):
+    output = '%s' % (self.name)
+    
+    return output

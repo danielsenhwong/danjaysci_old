@@ -10,24 +10,14 @@ class LabMember(models.Model):
   # convert the list to a tuple so that this will be valid for the form
   DAN_PHD_YEAR_TUPLE = tuple(DAN_PHD_YEAR_LIST)
 
-  # make a list of trainee types. this may be better suited to be a separate
-  # model in the future so we might add new types of trainees.
-  TRAINEE_TYPE = (
-    ("Post-doctoral Fellow",     "Post-doctoral Fellow"),
-    ("Graduate Student, PhD",    "Graduate Student, PhD"),
-    ("Medical Student, MD",      "Medical Student, MD"),
-    ("Graduate Student, MS/MBS", "Graduate Student, MS/MBS"),
-    ("Technician",               "Technician"),
-    ("PREP Scholar",             "PREP Scholar"),
-    ("Undergraduate Student",    "Undergraduate Student"),
-    ("High School Student",      "High School Student"),
-    ("Visiting Scientist",       "Visiting Scientist"),
+  first_name = models.CharField(
+    max_length = 30
   )
-  
-  first_name = models.CharField(max_length = 30)
-  last_name = models.CharField(max_length = 30)
+  last_name = models.CharField(
+    max_length = 30
+  )
   trainee_type = models.ForeignKey(
-    'TraineeType'
+    'TraineeType',
   )
   start_year = models.PositiveIntegerField(
     choices = DAN_PHD_YEAR_TUPLE,
