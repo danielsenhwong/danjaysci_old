@@ -24,9 +24,22 @@ class Plasmid(models.Model):
     blank = True,
     null = True,
   )
-  antibiotic_selection = models.ForeignKey(
+  prokaryotic_selection = models.ForeignKey(
     'SelectionAntibiotic',
+    limit_choices_to = {
+      'prokaryotic_use': True,
+    },
     on_delete = models.PROTECT, # do not allow antibiotic to be deleted from database if a dependent plasmid is also in the database
+    blank = True,
+  )
+  eukaryotic_selection = models.ForeignKey(
+    'SelectionAntibiotic',
+    limit_choices_to = {
+      'eukaryotic_use': True,
+    },
+    on_delete = models.PROTECT, # do not allow antibiotic to be deleted from database if a dependent plasmid is also in the database
+    blank = True,
+    null = True,
   )
   size_kb = models.DecimalField(
     max_digits = 4,
@@ -38,8 +51,15 @@ class Plasmid(models.Model):
     blank = True,
     null = True,
   )
-  received_from = models.CharField(
+  plasmid_source = models.CharField(
     max_length = 128,
+    verbose_name = "Plasmid source / received from",
+  )
+  parent_plasmid = models.ForeignKey(
+    'Plasmid',
+    on_delete = models.PROTECT,
+    blank = True,
+    null = True,
   )
   notes = models.TextField(
     blank = True,
