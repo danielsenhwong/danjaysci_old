@@ -34,6 +34,13 @@ class Plasmid(models.Model):
     verbose_name = "Size (kb)",
   )
   date_received = models.DateField()
+  datasheet = models.FileField(
+    blank = True,
+    null = True,
+  )
+  received_from = models.CharField(
+    max_length = 128,
+  )
   notes = models.TextField(
     blank = True,
     null = True,
@@ -100,10 +107,6 @@ class dnaPrep(models.Model):
     max_length = 128,
   )
   notes = models.TextField(
-    blank = True,
-    null = True,
-  )
-  datasheet = models.FileField(
     blank = True,
     null = True,
   )
