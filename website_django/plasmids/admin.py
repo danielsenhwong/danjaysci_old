@@ -1,6 +1,16 @@
 from django.contrib import admin
 from plasmids.models import Plasmid, dnaPrep, SelectionAntibiotic
 
+class PlasmidAdmin(admin.ModelAdmin):
+  list_display = (
+    'number',
+    'name',
+    'prokaryotic_selection',
+    'eukaryotic_selection',
+    'size',
+    'parent_plasmid',
+  )
+
 class SelectionAntibioticAdmin(admin.ModelAdmin):
   list_display = (
     'name',
@@ -10,6 +20,6 @@ class SelectionAntibioticAdmin(admin.ModelAdmin):
   )
 
 # Register your models here.
-admin.site.register(Plasmid)
+admin.site.register(Plasmid, PlasmidAdmin)
 admin.site.register(dnaPrep)
 admin.site.register(SelectionAntibiotic, SelectionAntibioticAdmin)
