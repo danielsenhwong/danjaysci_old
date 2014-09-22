@@ -9,10 +9,12 @@
 	<br />
 	<b>lab operations</b><br />
 {% if user.is_authenticated %}
-	Great!
+	Signed in as {{ user.username }}<br />
+	{% url 'logout' as logout_url %}
+	<a href='{{ logout_url }}'>Log out</a>
 {% else %}
-	Not signed in!<br /> 
-	{% include "login.html" %}
+	{% url 'login' as login_url %}
+	<a href='{{ login_url }}'>Log in</a>
 {% endif %}
 	<br />
 {% block navigation %}{% endblock %}

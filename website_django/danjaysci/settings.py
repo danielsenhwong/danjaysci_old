@@ -100,3 +100,5 @@ TEMPLATE_DIRS += STATICFILES_DIRS
 MEDIA_ROOT = '/var/www/danjaysci/media/'
 
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = '/'

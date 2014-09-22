@@ -88,7 +88,6 @@ class Plasmid(models.Model):
     output = 'p%s' % (
       self.number,
     )
-    
     return output
   
   def name_str(self):
@@ -96,7 +95,26 @@ class Plasmid(models.Model):
       self.number,
       self.name,
     )
+    return output
     
+  def names(self):
+    output = '%s' % (
+      self.name,
+    )
+    if self.alternate_names:
+      output += '\n(%s)' % (
+        self.alternate_names,
+      )
+    return output
+    
+  def antibiotic_resistance(self):
+    output = '(Pro) %s' % (
+      self.prokaryotic_selection,
+    )
+    if self.eukaryotic_selection:
+      output += ' and (Eu) %s' % (
+        self.eukaryotic_selection,
+      )
     return output
     
 class dnaPrep(models.Model):

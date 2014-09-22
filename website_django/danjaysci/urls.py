@@ -17,7 +17,8 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # user authentication
-    url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'registration/login.html'}),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', name='login'),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name='logout'),
 
     # my applications
     url(r'^$', include('home.urls'), name='home'), # home
@@ -25,5 +26,6 @@ urlpatterns = patterns('',
     url(r'^references/', include('home.urls'), name='references'), # references
     url(r'^primers/', include('primers.urls', namespace='primers')), # primers
     url(r'^lab_members/', include('lab_members.urls', namespace='lab_members')), #lab_members
+    url(r'^plasmids/', include('plasmids.urls', namespace='plasmids')), # plasmids
 
 )

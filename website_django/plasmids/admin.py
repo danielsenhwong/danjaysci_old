@@ -4,10 +4,8 @@ from plasmids.models import Plasmid, dnaPrep, SelectionAntibiotic
 class PlasmidAdmin(admin.ModelAdmin):
   list_display = (
     '__unicode__',
-    'name',
-    'alternate_names',
-    'prokaryotic_selection',
-    'eukaryotic_selection',
+    'names',
+    'antibiotic_resistance',
     'size_kb',
     'parent_plasmid',
     'plasmid_source',
@@ -18,7 +16,7 @@ class PlasmidAdmin(admin.ModelAdmin):
   )
   list_display_links = (
     '__unicode__',
-    'name',
+    'names',
   )
   list_editable = (
     'date_received',
@@ -27,11 +25,13 @@ class PlasmidAdmin(admin.ModelAdmin):
   search_fields = (
     'name',
     'alternate_names',
+    'plasmid_source',
     'notes',
   )
   list_filter = (
     'prokaryotic_selection',
     'eukaryotic_selection',
+    'plasmid_source',
   )
   ordering = (
     'number',
