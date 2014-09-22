@@ -13,7 +13,7 @@ class PlasmidAdmin(admin.ModelAdmin):
     'plasmid_source',
     'date_received',
     'glycerol_stock_made',
-    'datasheet.url',
+    'datasheet',
     'notes',
   )
   list_display_links = (
@@ -26,11 +26,11 @@ class PlasmidAdmin(admin.ModelAdmin):
   search_fields = (
     'name',
     'alternate_names',
-    'notes'
+    'notes',
   )
-  list.filter = (
+  list_filter = (
     'prokaryotic_selection',
-    'eukaryotic selection',
+    'eukaryotic_selection',
   )
   ordering = (
     'number',
@@ -63,10 +63,10 @@ class SelectionAntibioticAdmin(admin.ModelAdmin):
     'prokaryotic_use',
     'eukaryotic_use',
   )
-  search.fields = (
+  search_fields = (
     'name',
   )
-  list.filter = (
+  list_filter = (
     'prokaryotic_use',
     'eukaryotic_use',
     
