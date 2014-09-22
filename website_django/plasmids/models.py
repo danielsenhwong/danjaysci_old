@@ -17,6 +17,7 @@ class Plasmid(models.Model):
   number = models.CharField(
     max_length = 9,
     help_text = "All plasmids are numbered, and given a 'p' prefix, e.g. p1, p2, p3, etc.",
+    unique = True,
   )
   name = models.CharField(
     max_length = 64,
@@ -156,6 +157,7 @@ class dnaPrep(models.Model):
 class SelectionAntibiotic(models.Model):
   name = models.CharField(
     max_length = 64,
+    unique = True,
   )
   resistance_gene = models.CharField(
     max_length = 64,

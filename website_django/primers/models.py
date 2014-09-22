@@ -43,8 +43,7 @@ class Primer(models.Model):
     help_text = "Date ordered. Format: YYYY-MM-DD. Leave blank if not yet ordered.",
   )
   user_id = models.PositiveIntegerField() # switch this to ForeignKey() later
-  datasheet_url = models.CharField(
-    max_length = 255,
+  datasheet = models.FileField(
     blank = True,
     null = True,
   )

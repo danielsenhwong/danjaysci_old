@@ -41,6 +41,19 @@ class LabMember(models.Model):
     blank = True,
     null = True,
   )
+  
+  email_address = models.EmailField(
+    blank = True,
+    null = True,
+    unique = True,
+    help_text = "Primary e-mail address for this lab member. If a current Tufts affiliate, the Tufts e-mail address is preferred.",
+  )
+  alt_email_address = models.EmailField(
+    blank = True,
+    null = True,
+    unique = True,
+    help_text = "An alternate e-mail address for this lab member, in case the primary becomes deactivated.",
+  )
 
   def __unicode__(self):
     output = '%s %s, %s (%d' % (
