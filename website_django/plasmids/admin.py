@@ -7,7 +7,7 @@ class PlasmidAdmin(admin.ModelAdmin):
     'name',
     'prokaryotic_selection',
     'eukaryotic_selection',
-    'size',
+    'size_kb',
     'parent_plasmid',
   )
 
