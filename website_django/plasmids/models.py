@@ -50,24 +50,28 @@ class Plasmid(models.Model):
     decimal_places = 2,
     verbose_name = "Size (kb)",
   )
-  date_received = models.DateField()
+  date_received = models.DateField(
+    verbose_name = "Date received/generated",
+  )
   datasheet = models.FileField(
     blank = True,
     null = True,
   )
   plasmid_source = models.CharField(
     max_length = 128,
-    verbose_name = "Plasmid source (received from)",
+    verbose_name = "Plasmid source (received from/made by)",
   )
   parent_plasmid = models.ForeignKey(
     'Plasmid',
     on_delete = models.PROTECT,
     blank = True,
     null = True,
+    help_text = 'Identity of the vector. Insert information should be added in the "Notes" field.',
   )
   notes = models.TextField(
     blank = True,
     null = True,
+    help_text = 'Supplier catalog number, insert cloning details, and all other relevant information should be recorded here.',
   )
   glycerol_stock_made = models.DateField(
     blank = True,
@@ -77,10 +81,11 @@ class Plasmid(models.Model):
     max_length = 24,
     blank = True,
     null = True,
+    help_text = 'A comma-separated list of clone designations, e.g. A, B, C, etc.',
   )
   
   def __unicode__(self):
-    output = '(%s) %s' % (
+    output = 'p%s - %s' % (
       self.number,
       self.name,
     )

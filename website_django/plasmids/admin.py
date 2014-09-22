@@ -5,12 +5,57 @@ class PlasmidAdmin(admin.ModelAdmin):
   list_display = (
     'number',
     'name',
+    'alternate_names',
     'prokaryotic_selection',
     'eukaryotic_selection',
     'size_kb',
     'parent_plasmid',
+    'plasmid_source',
+    'date_received',
+    'glycerol_stock_made',
+    'datasheet.url',
+    'notes',
   )
-
+  list_display_links = (
+    'number',
+    'name',
+  )
+  list_editable = (
+    'date_received',
+  )
+  search_fields = (
+    'name',
+    'alternate_names',
+    'notes'
+  )
+  list.filter = (
+    'prokaryotic_selection',
+    'eukaryotic selection',
+  )
+  ordering = (
+    'number',
+  )
+  fieldsets = [
+    ('Primary Information',	   {'fields': [
+                                           'number',
+                                           'name',
+                                           'alternate_names',
+                                           'size_kb',
+                                           'date_received',
+                                           'glycerol_stock_made',
+                                           'plasmid_source',
+                                           'datasheet',
+                                           'notes',
+                                          ]}),
+    ('Biological information', {'fields': [
+                                           'prokaryotic_selection',
+                                           'eukaryotic_selection',
+                                           'parent_plasmid',
+                                           'clones',
+                                          ]}),
+  ]
+  
+  
 class SelectionAntibioticAdmin(admin.ModelAdmin):
   list_display = (
     'name',
@@ -18,7 +63,15 @@ class SelectionAntibioticAdmin(admin.ModelAdmin):
     'prokaryotic_use',
     'eukaryotic_use',
   )
-
+  search.fields = (
+    'name',
+  )
+  list.filter = (
+    'prokaryotic_use',
+    'eukaryotic_use',
+    
+  )
+  
 # Register your models here.
 admin.site.register(Plasmid, PlasmidAdmin)
 admin.site.register(dnaPrep)
