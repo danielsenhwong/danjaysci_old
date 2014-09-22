@@ -3,13 +3,13 @@ from plasmids.models import Plasmid, dnaPrep, SelectionAntibiotic
 
 class PlasmidAdmin(admin.ModelAdmin):
   list_display = (
-    'number',
+    'number_str',
     'name',
     'alternate_names',
     'prokaryotic_selection',
     'eukaryotic_selection',
     'size_kb',
-    'parent_plasmid',
+    'parent_plasmid.number_str',
     'plasmid_source',
     'date_received',
     'glycerol_stock_made',
@@ -22,6 +22,7 @@ class PlasmidAdmin(admin.ModelAdmin):
   )
   list_editable = (
     'date_received',
+    'glycerol_stock_made',
   )
   search_fields = (
     'name',

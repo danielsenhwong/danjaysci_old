@@ -51,7 +51,7 @@ class Plasmid(models.Model):
     verbose_name = "Size (kb)",
   )
   date_received = models.DateField(
-    verbose_name = "Date received/generated",
+    help_text = "Date the plasmid was received or generated.",
   )
   datasheet = models.FileField(
     blank = True,
@@ -59,7 +59,7 @@ class Plasmid(models.Model):
   )
   plasmid_source = models.CharField(
     max_length = 128,
-    verbose_name = "Plasmid source (received from/made by)",
+    help_text = "The person, organization, or company the plasmid was received from or made by.",
   )
   parent_plasmid = models.ForeignKey(
     'Plasmid',
@@ -88,6 +88,13 @@ class Plasmid(models.Model):
     output = 'p%s - %s' % (
       self.number,
       self.name,
+    )
+    
+    return output
+  
+  def number_str(self):
+    output = 'p%s' % (
+      self.number,
     )
     
     return output
