@@ -3,13 +3,13 @@ from plasmids.models import Plasmid, dnaPrep, SelectionAntibiotic
 
 class PlasmidAdmin(admin.ModelAdmin):
   list_display = (
-    'number_str',
+    '__unicode__',
     'name',
     'alternate_names',
     'prokaryotic_selection',
     'eukaryotic_selection',
     'size_kb',
-    'parent_plasmid.number_str',
+    'parent_plasmid',
     'plasmid_source',
     'date_received',
     'glycerol_stock_made',
@@ -17,7 +17,7 @@ class PlasmidAdmin(admin.ModelAdmin):
     'notes',
   )
   list_display_links = (
-    'number',
+    '__unicode__',
     'name',
   )
   list_editable = (
