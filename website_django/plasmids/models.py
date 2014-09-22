@@ -14,9 +14,9 @@ class Plasmid(models.Model):
     ("Zeocin",       "ZeoR/Sh ble"),
   )
 
-  number = models.CharField(
-    max_length = 9,
-    help_text = "All plasmids are numbered, and given a 'p' prefix, e.g. p1, p2, p3, etc.",
+  number = models.IntegerField(
+    max_length = 8,
+    help_text = "Plasmids will be automatically given a 'p' prefix, e.g. p1, p2, p3, etc.",
     unique = True,
   )
   name = models.CharField(
