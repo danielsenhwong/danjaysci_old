@@ -9,11 +9,11 @@ from primers.models import Primer
 class IndexView(generic.ListView):
   # show the latest 25 primers
   template_name = 'primers/index.html'
-  context_object_name = 'latest_primer_list'
+  context_object_name = 'primer_list'
 
   def get_queryset(self):
-    """Return the last 25 designed primers."""
-    return Primer.objects.order_by('-id')[:25]
+    """Return a list of primers, newest first."""
+    return Primer.objects.order_by('-id')
 
 class DetailView(generic.DetailView):
   model = Primer

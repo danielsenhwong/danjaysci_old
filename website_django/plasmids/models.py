@@ -117,6 +117,13 @@ class Plasmid(models.Model):
       )
     return output
     
+  def glycerol_status(self):
+    if self.glycerol_stock_made:
+      output = True
+    else:
+      output = False
+    return output
+
 class dnaPrep(models.Model):
   PREP_SCALE = (
     ("mini, ~20 ug DNA", "mini"),
@@ -183,6 +190,11 @@ class dnaPrep(models.Model):
       output += " (depleted)"
     
     return output
+    
+  def dna_conc_str(self):
+    output = '%d ng/uL' % (
+      self.dna_conc,
+    )
 
 class SelectionAntibiotic(models.Model):
   name = models.CharField(

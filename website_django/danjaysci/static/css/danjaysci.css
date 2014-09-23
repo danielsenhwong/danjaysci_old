@@ -102,6 +102,15 @@ span.auth_nav {
   background-color: yellow;
 }
 
+span.red {
+  color: red;
+}
+
 .auth_nav {
   background-color: #FFFFCC;
+}
+
+a.plain {
+  color: black;
+  text-decoration: none;
 }

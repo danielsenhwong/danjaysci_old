@@ -49,8 +49,16 @@ class Primer(models.Model):
   )
 
   def __unicode__(self): # Python 3: def __str__(self):
-    return "%i - %s (%i nt)" % (
+    return "%d - %s (%d nt)" % (
       self.number,
       self.name,
       len(self.sequence.replace(' ', '')),
     )
+  
+  def order_info(self):
+    output = '%s from %s' % (
+      self.date_ordered,
+      self.vendor,
+    )
+    
+    return output

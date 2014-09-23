@@ -10,11 +10,11 @@ urlpatterns = patterns('',
     url(r'^(?P<plasmid_id>\d+)/edit/$', login_required(views.plasmidEdit), name='edit'), # edit plasmid
     
     url(r'^preps/$', login_required(views.prepIndex.as_view()), name='prepIndex'), # dnaPrep index
-    url(r'^preps/(?P<pk>\d+)/$', login_required(views.prepDetail.as_view()), name='detail'), # dnaPrep detail
-    url(r'^(?P<dnaPrep_id>\d+)/edit/$', login_required(views.prepEdit), name='edit'), # edit dnaPrep
+    url(r'^preps/(?P<pk>\d+)/$', login_required(views.prepDetail.as_view()), name='prepDetail'), # dnaPrep detail
+    url(r'^(?P<dnaPrep_id>\d+)/edit/$', login_required(views.prepEdit), name='prepEdit'), # edit dnaPrep
     
     url(r'^antibiotic/$', login_required(views.antibioticIndex.as_view()), name='antibioticIndex'),
-    url(r'^antibiotic/(?P<pk>\d+)/$', login_required(views.antibioticDetail.as_view()), name='detail'), # dnaPrep detail
-    url(r'^(?P<SelectionAntibiotic_id>\d+)/edit/$', login_required(views.antibioticEdit), name='edit'), # edit dnaPrep
+    url(r'^antibiotic/(?P<pk>\d+)/$', login_required(views.antibioticDetail.as_view()), name='antibioticDetail'), # dnaPrep detail
+    url(r'^(?P<SelectionAntibiotic_id>\d+)/edit/$', login_required(views.antibioticEdit), name='antibioticEdit'), # edit dnaPrep
     
 )

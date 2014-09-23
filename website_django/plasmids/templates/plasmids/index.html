@@ -3,25 +3,39 @@
 {% block title %}Plasmids{% endblock %}
 {% block content_title %}Jay Lab Plasmids{% endblock %}
 {% block content %}
-<p></p>
+<p>The plasmids listed below are currently possessed by the Jay Lab. Where indicated,
+glycerol stocks of plasmids have been generated in triplicate, and are stored at -80ºC.</p>
+<p><span class="red">This list is only accessible to lab members who are able to sign in 
+to the "lab operations" portion of the site.</span></p>
 {% if plasmid_list %}
 <table>
   <tr class="header">
     <td>#</td>
     <td>Names</td>
-    <td>Antibiotics</td>
+    <td>Prokaryotic Selection</td>
+    <td>Eukaryotic Selection</td>
+    <td>Glycerol stock?</td>
     <td>Notes</td>
   </tr>
   {% for p in plasmid_list %}
     <tr class="{{ forloop.counter|divisibleby:2|yesno:'even,odd' }}">
-      <td class="nowrap">{{ p }}</td>
-      <td>{{ p.names }} </td>
-      <td class="nowrap">{{ p.antibiotic_resistance }}</td>
-      <td class="">{{ p.notes }}</td>
+      <td>
+        <b><a href='{% url 'plasmids:detail' p.id %}' class='plain'>{{ p }}</a></b>
+      </td>
+      <td>
+        <b><a href='{% url 'plasmids:detail' p.id %}'>{{ p.name }}</a></b><br />
+        {% if p.alternate_names %}
+          ({{ p.alternate_names }})
+        {% endif %}
+      </td>
+      <td>{{ p.prokaryotic_selection }}</td>
+      <td>{{ p.eukaryotic_selection }}</td>
+      <td>{{ p.glycerol_status }}</td>
+      <td>{{ p.notes }}</td>
     </tr>
   {% endfor %}
 </table>
 {% else %}
-  No lab members found!
+  No plasmids found!
 {% endif %}
 {% endblock %}

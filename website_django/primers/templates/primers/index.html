@@ -1,12 +1,39 @@
-{% if latest_primer_list %}
-    <ul>
-    {% for primer in latest_primer_list %}
-        <li><a href="{% url 'primers:detail' primer.id %}">{{ primer }}</a></li>
-    {% endfor %}
-    </ul>
+{% extends 'base.html' %}
+
+{% block title %}Primers{% endblock %}
+{% block content_title %}Jay Lab Primers / Oligonucleotides{% endblock %}
+{% block content %}
+<p>These are the primers and other oligonucleotides that have been synthesized for the Jay Lab.</p>
+<p><span class="red">This list is only accessible to lab members who are able to sign in 
+to the "lab operations" portion of the site.</span></p>
+
+{% if primer_list %}
+<table>
+  <tr class="header">
+    <td>#</td>
+    <td>Name</td>
+    <td>Sequence</td>
+    <td>Order info</td>
+    <td>Notes</td>
+  </tr>
+  {% for primer in primer_list %}
+    <tr class="{{ forloop.counter|divisibleby:2|yesno:'even,odd' }}">
+      <td>
+        <b><a href="{% url 'primers:detail' primer.id %}" class="plain">{{ primer.number }}</a></b>
+      </td>
+      <td>
+        <b><a href="{% url 'primers:detail' primer.id %}">{{ primer.name }}</a></b>
+      </td>
+      <td>{{ primer.sequence }}</td>
+      <td>{{ primer.order_info }}</td>
+      <td>{{ primer.notes }}</td>
+    </tr>
+  {% endfor %}
+</table>
 
 {% else %}
 
     <p>No primers are available.</p>
 
 {% endif %}
+{% endblock %}

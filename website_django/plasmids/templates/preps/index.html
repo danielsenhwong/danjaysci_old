@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}DNA Preps{% endblock %}
+{% block content_title %}Jay Lab DNA Preps {% endblock %}
+{% block content %}
+<p></p>
+<p><span class="red">This list is only accessible to lab members who are able to sign in 
+to the "lab operations" portion of the site.</span></p>
+{% if prep_list %}
+<table>
+  <tr class="header">
+    <td>Plasmid</td>
+    <td>Concentration</td>
+    <td>Date</td>
+    <td>Notes</td>
+  </tr>
+  {% for p in prep_list %}
+    <tr class="{{ forloop.counter|divisibleby:2|yesno:'even,odd' }}">
+      <td class="nowrap">{{ p.plasmid.name_str }}</td>
+      <td>{{ p.dna_conc_str }} </td>
+      <td>{{ p.prep_date }}</td>
+      <td>{{ p.notes }}</td>
+    </tr>
+  {% endfor %}
+</table>
+{% else %}
+  No DNA preps found!
+{% endif %}
+{% endblock %}
