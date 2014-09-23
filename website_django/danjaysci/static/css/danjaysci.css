@@ -97,3 +97,7 @@ td.nowrap {
 .noMarginBottom {
   margin-bottom: 0;
 }
+
+.auth_nav {
+  background-color: yellow;
+}

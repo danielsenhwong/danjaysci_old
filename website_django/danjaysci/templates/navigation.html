@@ -1,20 +1,27 @@
 <a href="/"><img src="{{ STATIC_URL }}img/danjaysci.png" alt="danjaysci" id="navlogo"/></a>
-	<b>general information</b><br />
-	<a href="/lab_members">lab members</a><br />
-	<a href="/references/list">CALI references</a><br />
-	<a href="/contact">contact info</a><br />
-	<br />
-	<b>related sites</b><br />
-	<a href="http://www.danjayart.com" target="_blank">danjayart.com</a><br />
-	<br />
-	<b>lab operations</b><br />
+
+<b>lab operations</b><br />
 {% if user.is_authenticated %}
-	Signed in as {{ user.username }}<br />
-	{% url 'logout' as logout_url %}
-	<a href='{{ logout_url }}'>Log out</a>
+    Signed in as <span class="auth_nav ">{{ user.username }}</span><br />
+    <a href='{% url 'logout' %}'>Log out</a><br />
+    <br />
+    <div class="auth_nav">
+      <b>inventories</b><br />
+      <a href="/plasmids">plasmids</a><br />
+      <a href="/primers">primers</a><br />
+    </div>
 {% else %}
-	{% url 'login' as login_url %}
-	<a href='{{ login_url }}'>Log in</a>
+	<a href='{% url 'login' %}'>Log in</a>
 {% endif %}
 	<br />
+
+
+<b>general information</b><br />
+<a href="/lab_members">lab members</a><br />
+<a href="/references/list">CALI references</a><br />
+<a href="/contact">contact info</a><br />
+<br />
+<b>related sites</b><br />
+<a href="http://www.danjayart.com" target="_blank">danjayart.com</a><br />
+<br />
 {% block navigation %}{% endblock %}
