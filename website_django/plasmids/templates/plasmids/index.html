@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Plasmids{% endblock %}
+{% block content_title %}Jay Lab Plasmids{% endblock %}
+{% block content %}
+<p></p>
+{% if plasmid_list %}
+<table>
+  <tr class="header">
+    <td>#</td>
+    <td>Names</td>
+    <td>Antibiotics</td>
+    <td>Notes</td>
+  </tr>
+  {% for p in plasmid_list %}
+    <tr class="{{ forloop.counter|divisibleby:2|yesno:'even,odd' }}">
+      <td class="nowrap">{{ p }}</td>
+      <td>{{ p.names }} </td>
+      <td class="nowrap">{{ p.antibiotic_resistance }}</td>
+      <td class="">{{ p.notes }}</td>
+    </tr>
+  {% endfor %}
+</table>
+{% else %}
+  No lab members found!
+{% endif %}
+{% endblock %}

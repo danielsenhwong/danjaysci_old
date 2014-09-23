@@ -12,7 +12,7 @@ class plasmidIndex(generic.ListView):
 
   def get_queryset(self):
     """Return a list of plasmids, sorted by number."""
-    return Plasmid.objects.order_by('+number')
+    return Plasmid.objects.order_by('number')
 
 class plasmidDetail(generic.DetailView):
   model = Plasmid

@@ -112,7 +112,7 @@ class Plasmid(models.Model):
       self.prokaryotic_selection,
     )
     if self.eukaryotic_selection:
-      output += ' and (Eu) %s' % (
+      output += ', (Eu) %s' % (
         self.eukaryotic_selection,
       )
     return output

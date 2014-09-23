@@ -98,6 +98,10 @@ td.nowrap {
   margin-bottom: 0;
 }
 
-.auth_nav {
+span.auth_nav {
   background-color: yellow;
+}
+
+.auth_nav {
+  background-color: #FFFFCC;
 }
