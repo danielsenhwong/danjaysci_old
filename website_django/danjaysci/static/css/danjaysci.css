@@ -53,6 +53,10 @@
   }
 }
 
+body {
+  font-family: "fira-mono",sans-serif;
+}
+
 #container {
   border: 1px solid gray;
   overflow: auto;
