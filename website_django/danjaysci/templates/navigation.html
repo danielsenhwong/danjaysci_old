@@ -1,12 +1,12 @@
 <a href="/"><img src="{{ STATIC_URL }}img/danjaysci.png" alt="danjaysci" id="navlogo"/></a>
 
-<div class="nav_header">lab operations</div><br />
+<span class="nav_header">lab operations</span><br />
 {% if user.is_authenticated %}
     Signed in as <span class="auth_nav ">{{ user.username }}</span><br />
     <a href='{% url 'logout' %}'>Log out</a><br />
     <br />
     <div class="auth_nav">
-      <div class="nav_header">inventories</div><br />
+      <span class="nav_header">inventories</span><br />
       cell lines<br />
       + LN2 stocks<br />
       <a href="/plasmids">plasmids</a><br />
@@ -17,15 +17,13 @@
 {% else %}
 	<a href='{% url 'login' %}'>Log in</a><br />
 {% endif %}
-	<br />
 
-
-<div class="nav_header">general information</div><br />
+<span class="nav_header">general information</span><br />
 <a href="/lab_members">lab members</a><br />
 <a href="/references/list">CALI references</a><br />
 <a href="/contact">contact info</a><br />
 <br />
-<div class="nav_header">related sites</div><br />
+<span class="nav_header">related sites</span><br />
 <a href="http://www.danjayart.com" target="_blank">danjayart.com</a><br />
 <br />
 {% block navigation %}{% endblock %}
