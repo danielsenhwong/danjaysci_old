@@ -112,6 +112,7 @@ span.red {
 
 span.nav_header {
   font-family: "fira-mono",sans-serif;
+  font-weight: bold;
 }
 
 .auth_nav {
