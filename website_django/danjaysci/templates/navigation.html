@@ -1,6 +1,6 @@
 <a href="/"><img src="{{ STATIC_URL }}img/danjaysci.png" alt="danjaysci" id="navlogo"/></a>
 
-<div class="nav_header">lab operations<//div><br />
+<div class="nav_header">lab operations</div><br />
 {% if user.is_authenticated %}
     Signed in as <span class="auth_nav ">{{ user.username }}</span><br />
     <a href='{% url 'logout' %}'>Log out</a><br />
@@ -20,7 +20,7 @@
 	<br />
 
 
-<div class="nav_header">general information<//div><br />
+<div class="nav_header">general information</div><br />
 <a href="/lab_members">lab members</a><br />
 <a href="/references/list">CALI references</a><br />
 <a href="/contact">contact info</a><br />
