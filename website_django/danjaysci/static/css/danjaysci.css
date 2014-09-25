@@ -53,7 +53,7 @@
   }
 }
 
-h1 .nav_header {
+h1 {
   font-family: "fira-mono",sans-serif;
 }
 
@@ -108,6 +108,10 @@ span.auth_nav {
 
 span.red {
   color: red;
+}
+
+span.nav_header {
+  font-family: "fira-mono",sans-serif;
 }
 
 .auth_nav {
