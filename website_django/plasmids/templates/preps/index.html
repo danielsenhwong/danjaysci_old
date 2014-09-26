@@ -9,6 +9,7 @@ to the "lab operations" portion of the site.</span></p>
 {% if prep_list %}
 <table>
   <tr class="header">
+    <td>Name</td>
     <td>Plasmid</td>
     <td>Concentration</td>
     <td>Date</td>
@@ -16,7 +17,8 @@ to the "lab operations" portion of the site.</span></p>
   </tr>
   {% for p in prep_list %}
     <tr class="{{ forloop.counter|divisibleby:2|yesno:'even,odd' }}">
-      <td class="nowrap">{{ p.plasmid.name_str }}</td>
+      <td class="nowrap">{{ p.name }}</td>
+      <td>{{ p.plasmid }}</td>
       <td>{{ p.dna_conc_str }} </td>
       <td>{{ p.prep_date }}</td>
       <td>{{ p.notes }}</td>

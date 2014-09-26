@@ -182,10 +182,9 @@ class dnaPrep(models.Model):
     verbose_name = "DNA prep"
   
   def __unicode__(self):
-    output = '%s, %s %d uL @ %d ng/uL' % (
-      self.plasmid,
+    output = '%s, %s, %d ng/uL' % (
+      self.name,
       self.prep_date,
-      self.elution_volume_ul,
       self.dna_conc,
     )
     
@@ -198,6 +197,8 @@ class dnaPrep(models.Model):
     output = '%d ng/uL' % (
       self.dna_conc,
     )
+    
+    return output
 
 class SelectionAntibiotic(models.Model):
   name = models.CharField(
