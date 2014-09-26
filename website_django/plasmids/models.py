@@ -126,11 +126,11 @@ class Plasmid(models.Model):
 
 class dnaPrep(models.Model):
   PREP_SCALE = (
-    ("mini, ~20 ug DNA", "mini"),
-    ("midi, ~200 ug DNA", "midi"),
-    ("maxi, ~1000 ug DNA", "maxi"),
-    ("mega, ~2500 ug DNA", "mega"),
-    ("giga, ~10000 ug DNA", "giga"),
+    ("mini", "mini, ~20 ug DNA"),
+    ("midi", "midi, ~200 ug DNA"),
+    ("maxi", "maxi, ~1000 ug DNA"),
+    ("mega", "mega, ~2500 ug DNA"),
+    ("giga", "giga, ~10000 ug DNA"),
   )
 
   plasmid = models.ForeignKey(
