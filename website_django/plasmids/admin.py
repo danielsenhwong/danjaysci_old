@@ -56,6 +56,25 @@ class PlasmidAdmin(admin.ModelAdmin):
                                           ]}),
   ]
   
+
+class PrepAdmin(admin.ModelAdmin):
+  list_display = (
+    'plasmid.name_str',
+    'prep_date',
+    'scale',
+    'elution_volume_ul',
+    'dna_conc',
+    'a260_280',
+    'location',
+    'notes',
+  )
+  
+  search_fields = (
+    'plasmid',
+    'notes',
+  )
+  
+
   
 class SelectionAntibioticAdmin(admin.ModelAdmin):
   list_display = (
@@ -75,5 +94,5 @@ class SelectionAntibioticAdmin(admin.ModelAdmin):
   
 # Register your models here.
 admin.site.register(Plasmid, PlasmidAdmin)
-admin.site.register(dnaPrep)
+admin.site.register(dnaPrep, PrepAdmin)
 admin.site.register(SelectionAntibiotic, SelectionAntibioticAdmin)

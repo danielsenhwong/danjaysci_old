@@ -85,15 +85,15 @@ class Plasmid(models.Model):
   )
   
   def __unicode__(self):
-    output = 'p%s' % (
-      self.number,
-    )
-    return output
-  
-  def name_str(self):
     output = 'p%s - %s' % (
       self.number,
       self.name,
+    )
+    return output
+  
+  def num_str(self):
+    output = 'p%s' % (
+      self.number,
     )
     return output
     
