@@ -59,7 +59,7 @@ class PlasmidAdmin(admin.ModelAdmin):
 
 class PrepAdmin(admin.ModelAdmin):
   list_display = (
-    'plasmid.name_str',
+    'plasmid',
     'prep_date',
     'scale',
     'elution_volume_ul',

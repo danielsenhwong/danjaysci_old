@@ -137,6 +137,9 @@ class dnaPrep(models.Model):
     'Plasmid',
     on_delete = models.PROTECT,  # not allowed to delete parent object with child dnaPreps
   )
+  name = models.CharField(
+    max_length = 32,
+  )
   prep_date = models.DateField()
   prep_by = models.CharField(  # convert this to ForeignKey in the future
     max_length = 64,
